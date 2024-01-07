@@ -63,6 +63,11 @@ flutter:
   assets:
   - lib/images/ride1.jpg
   - lib/images/logo.png
+  - lib/images/ride2.jpg
+  - lib/images/ride3.jpg
+  - lib/images/ride4.jpg
+  - lib/images/ride5.jpg
+  - lib/images/ride6.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

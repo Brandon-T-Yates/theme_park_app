@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:theme_park_app/components/ride_tile.dart';
+import 'package:theme_park_app/models/ride_list.dart';
 import 'package:theme_park_app/models/rides.dart';
 
 void main() {
@@ -33,6 +34,9 @@ class _RootPageState extends State<RootPage> {
     'https://familytraveller.com/usa/wp-content/uploads/sites/2/2017/09/GettyImages-809899932-1.jpg',
     'https://i.insider.com/576b15699105844d018cb046?width=1000&format=jpeg&auto=webp',
   ];
+  final RideList rideList = RideList();
+
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +60,10 @@ class _RootPageState extends State<RootPage> {
         children: [
           CarouselSliderWithDots(items: images), // Calls the carousel and adds in images
           const Padding(
-            padding: EdgeInsets.only(left: 35.0, top: 10),
+            padding: EdgeInsets.only(left: 35.0, top: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
                   'Our Top Picks',
@@ -73,50 +78,57 @@ class _RootPageState extends State<RootPage> {
           const SizedBox(width: 3, height: 10),
           Expanded(
             child: ListView.builder(
-              itemCount: 3,
+              itemCount: rideList.awesomeRides.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                Rides rides = Rides(name: 'Mega Theme Park', rideName: 'Mega Coster', imagePath: 'lib/images/ride1.jpg');
-                return RideTileWithBorder(
+                Rides rides = rideList.awesomeRides[index];
+                return RideTile(
                   rides: rides,
                 );
               },
             ),  
           ),
+          const Padding(
+            padding: EdgeInsets.only(top:275.0),
+            child: Divider(
+              color: Colors.white,
+            ),
+          ),
         ],
-      )
+      ),
+    bottomNavigationBar: BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.place),
+            label: 'Map',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_mall),
+            label: 'Buy',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+      ),
     );
   }
 }    
-
-class RideTileWithBorder extends StatelessWidget {
-  final Rides rides;
-
-  RideTileWithBorder({required this.rides});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(20.0),
-      height: 50,
-      width: 350,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.black,
-          width: 0.0,
-        ),
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
-        child: Image.asset(
-          rides.imagePath,
-          fit: BoxFit.cover, // Ensure the image covers the entire box
-        ),
-      ),
-    );
-  }
-}
 
 class CarouselSliderWithDots extends StatefulWidget { // Carousel setup
   const CarouselSliderWithDots({Key? key, required this.items}) : super(key: key);
