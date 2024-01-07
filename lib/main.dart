@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:theme_park_app/components/ride_tile.dart';
+import 'package:theme_park_app/models/rides.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,12 +39,84 @@ class _RootPageState extends State<RootPage> {
     return Scaffold(
       appBar: AppBar( // Creats the top bar
         centerTitle: true, // Centers the contents
-        title: const Text('Logo'), // creates a text widget
+        title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'lib/images/logo.png',
+            width: 50,
+            height: 50,
+          ),
+          const SizedBox(width: 10),
+          const Text('Coasters', style: TextStyle(fontSize: 25),),
+        ],
       ),
-      body: CarouselSliderWithDots(items: images), // Calls the carousel and adds in images
+      ),
+      body: Column(
+        children: [
+          CarouselSliderWithDots(items: images), // Calls the carousel and adds in images
+          const Padding(
+            padding: EdgeInsets.only(left: 35.0, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Our Top Picks',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 3, height: 10),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 3,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                Rides rides = Rides(name: 'Mega Theme Park', rideName: 'Mega Coster', imagePath: 'lib/images/ride1.jpg');
+                return RideTileWithBorder(
+                  rides: rides,
+                );
+              },
+            ),  
+          ),
+        ],
+      )
     );
   }
 }    
+
+class RideTileWithBorder extends StatelessWidget {
+  final Rides rides;
+
+  RideTileWithBorder({required this.rides});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(20.0),
+      height: 50,
+      width: 350,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.black,
+          width: 0.0,
+        ),
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: Image.asset(
+          rides.imagePath,
+          fit: BoxFit.cover, // Ensure the image covers the entire box
+        ),
+      ),
+    );
+  }
+}
 
 class CarouselSliderWithDots extends StatefulWidget { // Carousel setup
   const CarouselSliderWithDots({Key? key, required this.items}) : super(key: key);
