@@ -3,28 +3,22 @@ import 'rides.dart';
 class RideList {
   List<Rides> awesomeRides = [
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'Bumper Chaser',
+        rideName: 'Slinky Dog',
         imagePath: 'lib/images/ride1.jpg'),
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'The Hurricane',
+        rideName: 'Loch Ness Monster',
         imagePath: 'lib/images/ride2.jpg'),
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'Shooting Star',
+        rideName: 'ArieForce One',
         imagePath: 'lib/images/ride3.jpg'),
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'The Chase',
+        rideName: "Hagrid's Magical Creatures",
         imagePath: 'lib/images/ride6.jpg'),
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'The Dragon',
+        rideName: 'Emperor',
         imagePath: 'lib/images/ride4.jpg'),
     Rides(
-        name: 'Mega Theme Park',
-        rideName: 'Skyscraper',
+        rideName: 'Pitts Special',
         imagePath: 'lib/images/ride5.jpg'),
   ];
 }

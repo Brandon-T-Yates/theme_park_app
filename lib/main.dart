@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:theme_park_app/components/ride_tile.dart';
+import 'package:theme_park_app/components/park_tile.dart';
 import 'package:theme_park_app/models/ride_list.dart';
 import 'package:theme_park_app/models/rides.dart';
+import 'package:theme_park_app/models/parks_list.dart';
+import 'package:theme_park_app/models/parks.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +39,7 @@ class _RootPageState extends State<RootPage> {
     'https://i.insider.com/576b15699105844d018cb046?width=1000&format=jpeg&auto=webp',
   ];
   final RideList rideList = RideList();
+  final ParkList parkList = ParkList();
 
   int _currentIndex = 0;
 
@@ -77,19 +82,61 @@ class _RootPageState extends State<RootPage> {
           ),
           const SizedBox(width: 3, height: 10),
           Expanded(
-            child: ListView.builder(
-              itemCount: rideList.awesomeRides.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                Rides rides = rideList.awesomeRides[index];
-                return RideTile(
-                  rides: rides,
-                );
-              },
-            ),  
+            child: Padding(
+              padding: const EdgeInsets.only(right: 16.0), // Adjust the value as needed
+              child: ListView.builder(
+                itemCount: rideList.awesomeRides.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  Rides rides = rideList.awesomeRides[index];
+                  return RideTile(
+                    rides: rides,
+                  );
+                },
+              ),
+            ),
           ),
           const Padding(
-            padding: EdgeInsets.only(top:275.0),
+            padding: EdgeInsets.only(top:0),
+            child: Divider(
+              color: Colors.white,
+            ),
+          ),
+          // -------------------New Row--------------------
+          const Padding(
+            padding: EdgeInsets.only(left: 35.0, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  'About The Parks',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 3, height: 10),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 16.0), // Adjust the value as needed
+              child: ListView.builder(
+                itemCount: parkList.awesomeParks.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  Parks parks = parkList.awesomeParks[index];
+                  return ParkTile(
+                    parks: parks,
+                  );
+                },
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top:50),
             child: Divider(
               color: Colors.white,
             ),

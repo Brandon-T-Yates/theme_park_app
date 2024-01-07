@@ -68,6 +68,12 @@ flutter:
   - lib/images/ride4.jpg
   - lib/images/ride5.jpg
   - lib/images/ride6.jpg
+  - lib/images/disney.jpg
+  - lib/images/seaworld.jpg
+  - lib/images/powerpark.jpg
+  - lib/images/universal.jpg
+  - lib/images/sixflags.jpg
+  - lib/images/buschgardens.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
