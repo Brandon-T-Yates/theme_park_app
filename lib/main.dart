@@ -34,9 +34,9 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   final List<String> images = [
-    'https://www.explore.com/img/gallery/this-historic-theme-park-is-the-perfect-stop-on-your-next-northeast-family-trip/intro-1696967435.jpg',
-    'https://familytraveller.com/usa/wp-content/uploads/sites/2/2017/09/GettyImages-809899932-1.jpg',
-    'https://i.insider.com/576b15699105844d018cb046?width=1000&format=jpeg&auto=webp',
+    'https://cdn.tripster.com/travelguide/wp-content/uploads/2022/11/orlando-florida-universal-studios-harry-pottery-wizarding-world.jpg',
+    'https://www.disneytouristblog.com/wp-content/uploads/2022/08/cinderella-castle-early-entry-magic-kingdom-disney-world-237.jpg',
+    'https://www.telegraph.co.uk/content/dam/travel/Spark/brand-usa-2018/wizarding-world-of-harry-potter-universal-studios-hollywood.jpg',
   ];
   final RideList rideList = RideList();
   final ParkList parkList = ParkList();
@@ -57,7 +57,7 @@ class _RootPageState extends State<RootPage> {
             height: 50,
           ),
           const SizedBox(width: 10),
-          const Text('Coasters', style: TextStyle(fontSize: 25),),
+          const Text('Parks', style: TextStyle(fontSize: 25),),
         ],
       ),
       ),
@@ -137,9 +137,6 @@ class _RootPageState extends State<RootPage> {
           ),
           const Padding(
             padding: EdgeInsets.only(top:50),
-            child: Divider(
-              color: Colors.white,
-            ),
           ),
         ],
       ),
@@ -242,6 +239,18 @@ class _CarouselSliderWithDotsState extends State<CarouselSliderWithDots> {
           ),
           carouselController: controller,
         ),
+        const Positioned(
+            top: 140,
+            left: 10,
+            child: Text(
+              'Get To Know All \n These Amazing Places \n & What They Offer ',
+              style: TextStyle(
+                fontSize: 16, 
+                fontWeight: FontWeight.bold, 
+                color: Colors.white,
+              ),
+            ),
+          ),
         // This positions and changes the dots widget ontop of the carousel
         Positioned( 
           bottom: -5.0,

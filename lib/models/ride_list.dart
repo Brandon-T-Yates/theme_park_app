@@ -4,7 +4,7 @@ class RideList {
   List<Rides> awesomeRides = [
     Rides(
         rideName: 'Slinky Dog',
-        imagePath: 'lib/images/ride1.jpg'),
+        imagePath: 'lib/images/ride6.jpg'),
     Rides(
         rideName: 'Loch Ness Monster',
         imagePath: 'lib/images/ride2.jpg'),
