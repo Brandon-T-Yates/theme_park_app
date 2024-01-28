@@ -1,16 +1,10 @@
 # theme_park_app
 
-A new Flutter project.
+A new Flutter project that is inspired by the Universal Studios app, 
+developed with the idea of being a sort of blog for rides and theme parks.
 
-## Getting Started
+This is a small project just to get myself familiar with Flutter. 
 
-This project is a starting point for a Flutter application.
+I have no plans on launching this app nor do I own any of the assets used in this app. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+All rights go to their respected owners and companies.
